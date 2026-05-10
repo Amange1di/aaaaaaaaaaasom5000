@@ -9,6 +9,7 @@ def health_check(request):
     return HttpResponse("OK")
 
 urlpatterns = [
+    path("", health_check),
     path("health/", health_check),
     path("admin/", admin.site.urls),
     path("api/accounts/", include("accounts.urls")),
