@@ -3,7 +3,7 @@ services:
     name: edudata-backend
     env: python
     buildCommand: pip install -r requirements.txt && cd backend && python manage.py collectstatic --noinput && python manage.py migrate && python manage.py bootstrap_admin
-    startCommand: cd backend && gunicorn edudata.wsgi:application --log-file - --bind 0.0.0.0:$PORT
+    startCommand: cd backend && gunicorn edudata.wsgi:application --bind 0.0.0.0:$PORT
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.9
